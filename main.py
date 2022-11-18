@@ -1,7 +1,7 @@
 import flet
 from flet.ref import Ref
 from flet import Page, Text, ElevatedButton, TextField, Dropdown, dropdown, Row, KeyboardEvent
-
+from TypingTime import TypingTime
 
 def main(page: Page):
     prm_btn = Ref[ElevatedButton]()
@@ -11,8 +11,16 @@ def main(page: Page):
         if prm_btn.current.text == "Start":
             prm_btn.current.text = "I finished"
             typing_field.current.focus()
+
+
+            # Mechanism
+            TypingTime.timer_start()
         else:
             prm_btn.current.text = "Start"
+
+            # Mechanism
+            TypingTime.timer_end()
+            page.add(Text(value=f"You Spent {round(TypingTime.interval(),2)} seconds of typing."))
         page.update()
 
 
