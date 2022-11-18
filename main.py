@@ -4,7 +4,7 @@ from flet import Page, Text, ElevatedButton, TextField, Dropdown, dropdown, Row,
 
 
 def main(page: Page):
-    ...
+    pass
 
 if __name__ == "__main__":
     flet.app(target=main)
